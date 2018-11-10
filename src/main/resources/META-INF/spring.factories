@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.inzahgi.spring.boot.starter.hbase.boot.HbaseAutoConfiguration
