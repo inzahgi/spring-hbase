@@ -4,39 +4,39 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.inzahgi</groupId>
+    <groupId>com.github.inzahgi</groupId>
     <artifactId>spring-boot-starter-hbase</artifactId>
     <version>1.0.0.RELEASE</version>
 
     <name>spring-boot-starter-hbase</name>
     <description>starter for hbase</description>
 
-    <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>7</version>
-    </parent>
+    <!--<parent>-->
+        <!--<groupId>org.sonatype.oss</groupId>-->
+        <!--<artifactId>oss-parent</artifactId>-->
+        <!--<version>7</version>-->
+    <!--</parent>-->
 
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
+    <!--<licenses>-->
+        <!--<license>-->
+            <!--<name>The Apache Software License, Version 2.0</name>-->
+            <!--<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>-->
+            <!--<distribution>repo</distribution>-->
+        <!--</license>-->
+    <!--</licenses>-->
 
-    <scm>
-        <url>http://spring4all.com</url>
-        <connection>git@github.com:SpringForAll/spring-boot-starter-hbase.git</connection>
-        <developerConnection>https://github.com/SpringForAll/spring-boot-starter-hbase</developerConnection>
-    </scm>
+    <!--<scm>-->
+        <!--<url>http://spring4all.com</url>-->
+        <!--<connection>git@github.com:SpringForAll/spring-boot-starter-hbase.git</connection>-->
+        <!--<developerConnection>https://github.com/SpringForAll/spring-boot-starter-hbase</developerConnection>-->
+    <!--</scm>-->
 
-    <developers>
-        <developer>
-            <name>JThink</name>
-            <organization>http://spring4all.com</organization>
-        </developer>
-    </developers>
+    <!--<developers>-->
+        <!--<developer>-->
+            <!--<name>JThink</name>-->
+            <!--<organization>http://spring4all.com</organization>-->
+        <!--</developer>-->
+    <!--</developers>-->
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

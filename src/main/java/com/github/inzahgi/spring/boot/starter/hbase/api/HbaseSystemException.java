@@ -1,4 +1,4 @@
-package com.inzahgi.spring.boot.starter.hbase.api;
+package com.github.inzahgi.spring.boot.starter.hbase.api;
 
 import org.springframework.dao.UncategorizedDataAccessException;
 

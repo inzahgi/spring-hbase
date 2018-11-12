@@ -1,4 +1,4 @@
-package com.inzahgi.spring.boot.starter.hbase.boot;
+package com.github.inzahgi.spring.boot.starter.hbase.boot;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

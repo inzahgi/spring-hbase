@@ -1,6 +1,6 @@
-package com.inzahgi.spring.boot.starter.hbase.boot;
+package com.github.inzahgi.spring.boot.starter.hbase.boot;
 
-import com.inzahgi.spring.boot.starter.hbase.api.HbaseTemplate;
+import com.github.inzahgi.spring.boot.starter.hbase.api.HbaseTemplate;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,10 +1,7 @@
-package com.inzahgi.spring.boot.starter.hbase.api;
+package com.github.inzahgi.spring.boot.starter.hbase.api;
 
-import com.google.common.base.Predicates;
 import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.hbase.HColumnDescriptor;
-import org.apache.hadoop.hbase.HTableDescriptor;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.util.Bytes;

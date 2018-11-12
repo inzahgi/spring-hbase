@@ -1,4 +1,4 @@
-package com.inzahgi.spring.boot.starter.hbase.api;
+package com.github.inzahgi.spring.boot.starter.hbase.api;
 
 import org.apache.hadoop.hbase.client.Mutation;
 import org.apache.hadoop.hbase.client.Scan;
