@@ -1,7 +1,10 @@
 package com.inzahgi.spring.boot.starter.hbase.api;
 
+import com.google.common.base.Predicates;
 import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HColumnDescriptor;
+import org.apache.hadoop.hbase.HTableDescriptor;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.util.Bytes;
@@ -16,6 +19,7 @@ import java.util.List;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 /**
  * Central class for accessing the HBase API. Simplifies the use of HBase and helps to avoid common errors.
@@ -54,7 +58,9 @@ public class HbaseTemplate implements HbaseOperations {
                     table.close();
                     sw.stop();
                 } catch (IOException e) {
+                    e.printStackTrace();
                     LOGGER.error("hbase资源释放失败");
+                    throw new HbaseSystemException(e);
                 }
             }
         }
@@ -94,6 +100,9 @@ public class HbaseTemplate implements HbaseOperations {
                         rs.add(action.mapRow(result, rowNum++));
                     }
                     return rs;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    throw new HbaseSystemException(e);
                 } finally {
                     scanner.close();
                 }
@@ -154,9 +163,46 @@ public class HbaseTemplate implements HbaseOperations {
                     mutator.close();
                     sw.stop();
                 } catch (IOException e) {
+                    e.printStackTrace();
                     LOGGER.error("hbase mutator资源释放失败");
+                    throw new HbaseSystemException(e);
                 }
             }
+        }
+    }
+
+    public void putData(String tableName, final Put put){
+        Assert.notNull(put, "Put object must not be null");
+        Assert.notNull(tableName, "No table specified");
+
+        try {
+            connection = getConnection();
+            Table table = connection.getTable(TableName.valueOf(tableName));
+            try {
+                table.put(put);
+            } finally {
+                if (table != null) table.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void putDataList(String tableName, final List<Put> list){
+        Assert.notNull(list, "Put object must not be null");
+        Assert.notNull(tableName, "No table specified");
+
+        try {
+            connection = getConnection();
+            Table table = connection.getTable(TableName.valueOf(tableName));
+            try {
+                table.put(list.stream().filter(e ->e!=null).
+                        collect(Collectors.toList()));
+            } finally {
+                if (table != null) table.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -185,7 +231,7 @@ public class HbaseTemplate implements HbaseOperations {
     }
 
     public Connection getConnection() {
-        if (null == this.connection) {
+        if (null == this.connection || connection.isClosed()) {
             synchronized (this) {
                 if (null == this.connection) {
                     try {
@@ -194,7 +240,9 @@ public class HbaseTemplate implements HbaseOperations {
                         poolExecutor.prestartCoreThread();
                         this.connection = ConnectionFactory.createConnection(configuration, poolExecutor);
                     } catch (IOException e) {
+                        e.printStackTrace();
                         LOGGER.error("hbase connection资源池创建失败");
+                        throw new HbaseSystemException(e);
                     }
                 }
             }
