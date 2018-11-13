@@ -230,7 +230,7 @@ public class HbaseTemplate implements HbaseOperations {
     public Connection getConnection() {
         if (null == this.connection || connection.isClosed()) {
             synchronized (this) {
-                if (null == this.connection) {
+                if (null == this.connection || connection.isClosed()) {
                     try {
                         ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(200, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
                         // init pool
