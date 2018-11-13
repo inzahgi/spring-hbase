@@ -11,32 +11,32 @@
     <name>spring-boot-starter-hbase</name>
     <description>starter for hbase</description>
 
-    <!--<parent>-->
-        <!--<groupId>org.sonatype.oss</groupId>-->
-        <!--<artifactId>oss-parent</artifactId>-->
-        <!--<version>7</version>-->
-    <!--</parent>-->
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
 
-    <!--<licenses>-->
-        <!--<license>-->
-            <!--<name>The Apache Software License, Version 2.0</name>-->
-            <!--<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>-->
-            <!--<distribution>repo</distribution>-->
-        <!--</license>-->
-    <!--</licenses>-->
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
-    <!--<scm>-->
-        <!--<url>http://spring4all.com</url>-->
-        <!--<connection>git@github.com:SpringForAll/spring-boot-starter-hbase.git</connection>-->
-        <!--<developerConnection>https://github.com/SpringForAll/spring-boot-starter-hbase</developerConnection>-->
-    <!--</scm>-->
+    <scm>
+        <url>https://github.com/inzahgi/spring-hbase</url>
+        <connection>git@github.com:inzahgi/spring-hbase.git</connection>
+        <developerConnection>https://github.com/inzahgi/spring-hbase</developerConnection>
+    </scm>
 
-    <!--<developers>-->
-        <!--<developer>-->
-            <!--<name>JThink</name>-->
-            <!--<organization>http://spring4all.com</organization>-->
-        <!--</developer>-->
-    <!--</developers>-->
+    <developers>
+        <developer>
+            <name>inzahgi</name>
+            <organization>https://github.com/inzahgi</organization>
+        </developer>
+    </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -121,11 +121,11 @@
                             <relocations>
                                 <relocation>
                                     <pattern>com.google.guava</pattern>
-                                    <shadedPattern>Guava.guava</shadedPattern>
+                                    <shadedPattern>another.util</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>com.google.common</pattern>
-                                    <shadedPattern>Guava.common</shadedPattern>
+                                    <shadedPattern>another.util</shadedPattern>
                                 </relocation>
                             </relocations>
                             <transformers>
