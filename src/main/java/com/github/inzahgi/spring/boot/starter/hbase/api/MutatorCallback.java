@@ -7,8 +7,8 @@ public interface MutatorCallback {
 
     /**
      * 使用mutator api to update put and delete
-     * @param mutator
-     * @throws Throwable
+     * @param mutator  put record
+     * @throws Throwable  exception
      */
     void doInMutator(BufferedMutator mutator) throws Throwable;
 }

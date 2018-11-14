@@ -20,6 +20,7 @@ public interface HbaseOperations {
      * Allows for returning a result object (typically a domain object or collection of domain objects).
      *
      * @param tableName the target table
+     * @param mapper callback
      * @param <T> action type
      * @return the result object of the callback action, or null
      */
@@ -31,6 +32,7 @@ public interface HbaseOperations {
      *
      * @param tableName target table
      * @param family column family
+     * @param mapper callback
      * @param <T> action type
      * @return a list of objects mapping the scanned rows
      */
@@ -43,6 +45,7 @@ public interface HbaseOperations {
      * @param tableName target table
      * @param family column family
      * @param qualifier column qualifier
+     * @param mapper callback
      * @param <T> action type
      * @return a list of objects mapping the scanned rows
      */
@@ -55,6 +58,7 @@ public interface HbaseOperations {
      *
      * @param tableName target table
      * @param scan table scanner
+     * @param mapper callback
      * @param <T> action type
      * @return a list of objects mapping the scanned rows
      */
@@ -98,15 +102,15 @@ public interface HbaseOperations {
 
     /**
      * 执行put update or delete
-     * @param tableName
-     * @param action
+     * @param tableName  table name
+     * @param action  callback
      */
     void execute(String tableName, MutatorCallback action);
 
     /**
      *
-     * @param tableName
-     * @param mutation
+     * @param tableName table name
+     * @param mutation  put record
      */
     void saveOrUpdate(String tableName, Mutation mutation);
 
